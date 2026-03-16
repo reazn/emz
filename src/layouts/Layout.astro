@@ -1,4 +1,5 @@
 ---
+import Analytics from "@vercel/analytics/astro";
 import { siteUrl } from "../config";
 const canonicalUrl = siteUrl;
 const ogImage = `${siteUrl}/images/og.webp`;
@@ -105,10 +106,7 @@ const schema = {
 	</head>
 	<body>
 		<slot />
-		<script>
-			import { inject } from "@vercel/analytics";
-			inject();
-		</script>
+		<Analytics />
 	</body>
 </html>
 <style is:global>
