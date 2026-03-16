@@ -14,13 +14,29 @@ import { services } from "../services";
                 <div class="w-1/3 h-[2px] bg-accent"/>
                 {service.categories.map(category => (
                     <ul class="space-y-2">
-                        <li><h4 class="font-bold text-xl">{category.title}</h4></li>
+                        {(category.title || category.description) && (
+                            <li class="grid grid-cols-[1fr_auto] items-start gap-x-4">
+                                {category.title && (
+                                    <h4 class="font-bold text-xl leading-snug">{category.title}</h4>
+                                )}
+                                {category.description && (
+                                    <p class="text-xs text-zinc-600 text-right leading-snug max-w-[14rem] break-words">
+                                        {category.description}
+                                    </p>
+                                )}
+                            </li>
+                        )}
                         {category.service.map(service => (
                             <>
-                                <li class="flex flex-row gap-4 font-medium items-center whitespace-nowrap">
-                                    <span>{service.name}</span>
-                                    <div class="w-full h-[1px] bg-backgroundAlt"/>
-                                    <span class="text-right">{service.price}</span>
+                                <li class="flex flex-col gap-0.5">
+                                    <div class="flex flex-row gap-4 font-medium items-center whitespace-nowrap">
+                                        <span>{service.name}</span>
+                                        <div class="w-full h-[1px] bg-backgroundAlt"/>
+                                        <span class="text-right">{service.price}</span>
+                                    </div>
+                                    {service.description && (
+                                        <p class="text-sm text-zinc-600">{service.description}</p>
+                                    )}
                                 </li>
                                 {service.options && <li class="font-medium">Chose From:</li> }
                                 <li>

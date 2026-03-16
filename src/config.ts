@@ -1,3 +1,4 @@
+export const siteUrl = "https://www.emzsalon.co.uk";
 
 export const links: string[] = ["home", "about", "feed", "services", "find us"];
 
@@ -8,7 +9,7 @@ export const details = {
 }
 
 export const social = [
-    {
+    { 
         title: "Phone",
         url: `tel:${details.phone}`,
         icon: "ic:round-local-phone",
